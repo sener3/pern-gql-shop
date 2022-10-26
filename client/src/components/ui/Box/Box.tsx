@@ -7,13 +7,10 @@ type BoxProps = {
 };
 
 const Box = (props: BoxProps): JSX.Element => {
-    const { id, className, children } = props;
+    const { id = "", className = "", children } = props;
 
     return (
-        <div
-            id={(id && id) || ""}
-            className={cls((className && className) || "")}
-        >
+        <div id={id} className={className}>
             {children}
         </div>
     );

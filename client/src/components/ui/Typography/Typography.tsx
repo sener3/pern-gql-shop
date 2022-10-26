@@ -9,18 +9,17 @@ type TypographyProps = {
     className?: string;
     children?: React.ReactNode | React.ReactNode[];
     variant: TypographyVariant;
+
+    onClick?: () => void;
 };
 
 const Typography = (props: TypographyProps): JSX.Element => {
-    const { id, className, children, variant } = props;
+    const { id = "", className = "", children, variant, onClick } = props;
 
     const Tag = variant;
 
     return (
-        <Tag
-            id={(id && id) || ""}
-            className={cls((className && className) || "")}
-        >
+        <Tag id={id} className={cls(className)} onClick={onClick}>
             {children}
         </Tag>
     );

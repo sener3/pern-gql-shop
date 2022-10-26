@@ -14,8 +14,8 @@ const FullPage = ({ children }: FullPageProps): JSX.Element => {
     return (
         <Fullpage>
             <FullPageSections>
-                {children?.map((x) => (
-                    <FullpageSection>{x}</FullpageSection>
+                {children?.map((x, index) => (
+                    <FullpageSection key={index}>{x}</FullpageSection>
                 ))}
             </FullPageSections>
         </Fullpage>

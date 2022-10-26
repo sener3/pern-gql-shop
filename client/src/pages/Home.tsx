@@ -31,8 +31,8 @@ const Home = (): JSX.Element => {
         <>
             <Navbar />
             <FullPage>
-                {sections.map((x) => (
-                    <Box className="section fp-section">
+                {sections.map((x, index) => (
+                    <Box key={index} className="section fp-section">
                         <Image className="fp-img" src={x.src} alt={x.alt} />
                     </Box>
                 ))}

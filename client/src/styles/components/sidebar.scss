@@ -1,0 +1,49 @@
+.sidebar-wrapper {
+    min-width: 250px;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    padding: 1.875rem 1.5625rem;
+
+    background-color: #FFFFFF;
+
+    z-index: 999;
+
+    &-left {
+        left: 0;
+        transition: left .5s;
+
+        .sidebar-header {
+            justify-content: flex-end;
+        }
+    }
+
+    &-left#{&}-closed {
+        left: -100%;
+        transition: left 1.5s;
+    }
+
+    &-right {
+        right: 0;
+        transition: right .5s;
+    }
+
+    &-right#{&}-closed {
+        right: -100%;
+        transition: right 1.5s;
+    }
+
+}
+
+.sidebar-header {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1.5rem;
+
+    p {
+        font-size: 1.25rem;
+        cursor: pointer;
+    }
+}
