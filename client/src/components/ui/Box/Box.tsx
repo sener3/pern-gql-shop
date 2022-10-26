@@ -1,4 +1,4 @@
-import { cls } from "../../../utils/helpers";
+import { cls } from "@utils/helpers";
 
 type BoxProps = {
     id?: string;

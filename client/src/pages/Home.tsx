@@ -1,10 +1,10 @@
-import "../styles/pages/home.scss";
+import "@styles/pages/home.scss";
 
-import Navbar from "../components/Navbar";
+import Navbar from "@components/Navbar";
 
-import Box from "../components/ui/Box";
-import Image from "../components/ui/Image";
-import FullPage from "../components/FullPage";
+import Box from "@components/ui/Box";
+import Image from "@components/ui/Image";
+import FullPage from "@components/FullPage";
 
 type Section = {
     src: string;

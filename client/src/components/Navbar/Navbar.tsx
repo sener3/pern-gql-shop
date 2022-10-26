@@ -1,11 +1,11 @@
-import "../../styles/components/navbar.scss";
+import "@styles/components/navbar.scss";
 
-import Box from "../ui/Box";
-import Icon from "../ui/Icon";
-import Hyperlink from "../ui/Hyperlink";
-import Typography from "../ui/Typography";
+import Box from "@components/ui/Box";
+import Icon from "@components/ui/Icon";
+import Hyperlink from "@components/ui/Hyperlink";
+import Typography from "@components/ui/Typography";
 
-import { HamburgerIcon, SearchIcon, CartIcon } from "../../utils/svg-sprite";
+import { HamburgerIcon, SearchIcon, CartIcon } from "@utils/svg-sprite";
 
 const Navbar = (): JSX.Element => {
     return (

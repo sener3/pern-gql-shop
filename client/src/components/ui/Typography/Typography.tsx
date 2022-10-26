@@ -1,6 +1,6 @@
-import "../../../styles/components/typography.scss";
+import "@styles/components/typography.scss";
 
-import { cls } from "../../../utils/helpers";
+import { cls } from "@utils/helpers";
 
 type TypographyVariant = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 

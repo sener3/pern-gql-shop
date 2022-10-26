@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "../pages/Home";
-import Search from "../pages/Search";
+import Home from "@pages/Home";
+import Search from "@pages/Search";
 
 const MyRoutes = (): JSX.Element => {
     return (

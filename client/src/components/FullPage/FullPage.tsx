@@ -1,4 +1,4 @@
-import "../../styles/components/fullpage.scss";
+import "@styles/components/fullpage.scss";
 
 import Fullpage, {
     FullPageSections,
