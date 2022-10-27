@@ -13,9 +13,26 @@ export type Scalars = {
   Float: number;
 };
 
+export type Category = {
+  __typename?: 'Category';
+  id: Scalars['String'];
+  name: Scalars['String'];
+  products?: Maybe<Array<Product>>;
+};
+
+export type CategoryInput = {
+  name: Scalars['String'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
+  addCategory?: Maybe<Category>;
   addProduct?: Maybe<Product>;
+};
+
+
+export type MutationAddCategoryArgs = {
+  category: CategoryInput;
 };
 
 
@@ -25,18 +42,21 @@ export type MutationAddProductArgs = {
 
 export type Product = {
   __typename?: 'Product';
+  categoryId?: Maybe<Scalars['String']>;
   id: Scalars['String'];
   name: Scalars['String'];
   price: Scalars['Float'];
 };
 
 export type ProductInput = {
+  categoryId?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   price: Scalars['Float'];
 };
 
 export type Query = {
   __typename?: 'Query';
+  getCategories: Array<Category>;
   getProducts: Array<Product>;
 };
 
@@ -47,6 +67,11 @@ export type AddProductMutationVariables = Exact<{
 
 export type AddProductMutation = { __typename?: 'Mutation', addProduct?: { __typename?: 'Product', name: string, price: number } | null };
 
+export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCategoriesQuery = { __typename?: 'Query', getCategories: Array<{ __typename?: 'Category', name: string }> };
+
 export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -54,4 +79,5 @@ export type GetProductsQuery = { __typename?: 'Query', getProducts: Array<{ __ty
 
 
 export const AddProductDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"addProduct"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"product"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ProductInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"addProduct"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"product"},"value":{"kind":"Variable","name":{"kind":"Name","value":"product"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"price"}}]}}]}}]} as unknown as DocumentNode<AddProductMutation, AddProductMutationVariables>;
+export const GetCategoriesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getCategories"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<GetCategoriesQuery, GetCategoriesQueryVariables>;
 export const GetProductsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getProducts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"price"}}]}}]}}]} as unknown as DocumentNode<GetProductsQuery, GetProductsQueryVariables>;

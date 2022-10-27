@@ -10,13 +10,20 @@ type SidebarPosition = "left" | "right";
 type SidebarProps = {
     position: SidebarPosition;
     isOpen: boolean;
+    isLoading?: boolean;
     children: React.ReactNode | React.ReactNode[];
 
     handleClose: () => void;
 };
 
 const Sidebar = (props: SidebarProps): JSX.Element => {
-    const { position, isOpen, children, handleClose } = props;
+    const {
+        position,
+        isOpen,
+        isLoading = false,
+        children,
+        handleClose,
+    } = props;
 
     const classNameWrapper = cls(
         `sidebar-wrapper`,
@@ -25,14 +32,18 @@ const Sidebar = (props: SidebarProps): JSX.Element => {
     );
 
     return (
-        <Box className={classNameWrapper}>
-            <Box className="sidebar-header">
-                <Typography variant="p" onClick={handleClose}>
-                    close
-                </Typography>
-            </Box>
-            <Box className="sidebar-container">{children}</Box>
-        </Box>
+        <>
+            {!isLoading && (
+                <Box className={classNameWrapper}>
+                    <Box className="sidebar-header">
+                        <Typography variant="p" onClick={handleClose}>
+                            close
+                        </Typography>
+                    </Box>
+                    <Box className="sidebar-container">{children}</Box>
+                </Box>
+            )}
+        </>
     );
 };
 

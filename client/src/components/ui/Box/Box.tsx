@@ -10,7 +10,7 @@ const Box = (props: BoxProps): JSX.Element => {
     const { id = "", className = "", children } = props;
 
     return (
-        <div id={id} className={className}>
+        <div id={id} className={cls(className)}>
             {children}
         </div>
     );

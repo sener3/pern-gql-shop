@@ -8,11 +8,16 @@ import Hyperlink from "@components/ui/Hyperlink";
 import Typography from "@components/ui/Typography";
 
 import useToggle from "@hooks/useToggle";
+import { useQuery } from "@apollo/client";
 
+import { GetCategoriesDocument } from "@graphql/generated";
 import { HamburgerIcon, SearchIcon, CartIcon } from "@utils/svg-sprite";
+import List, { ListItem } from "@components/List";
 
 const Navbar = (): JSX.Element => {
     const { status: isOpen, toggleStatus: toggleIsOpen } = useToggle(false);
+
+    const { data, loading } = useQuery(GetCategoriesDocument);
 
     return (
         <>
@@ -36,8 +41,26 @@ const Navbar = (): JSX.Element => {
                 </Box>
             </Box>
 
-            <Sidebar position="left" isOpen={isOpen} handleClose={toggleIsOpen}>
-                <Box>{/* GET Categories from API here */}</Box>
+            <Sidebar
+                position="left"
+                isOpen={isOpen}
+                isLoading={loading}
+                handleClose={toggleIsOpen}
+            >
+                <List className="sidebar-list">
+                    {data?.getCategories.map((x) => (
+                        <Hyperlink
+                            className="sidebar-link"
+                            to={`/category/${x.name.toLowerCase()}`}
+                        >
+                            <ListItem
+                                className="sidebar-item"
+                                title={x.name}
+                                onClick={toggleIsOpen}
+                            />
+                        </Hyperlink>
+                    ))}
+                </List>
             </Sidebar>
         </>
     );
