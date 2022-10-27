@@ -9,8 +9,8 @@ import { WebSocketServer } from 'ws';
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer';
 import { useServer } from 'graphql-ws/lib/use/ws';
 
-import { typeDefs } from './typeDefs';
-import { resolvers } from './resolvers';
+import { typeDefs } from './graphql/typeDefs';
+import { resolvers } from './graphql/resolvers';
 
 async function startApolloServer(typeDefs: any, resolvers: any) {
   const app = express();

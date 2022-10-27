@@ -1,17 +1,15 @@
-import db, { Product } from "../lib/database";
+import db, { Product } from "../../lib/database";
 
-const getProducts = async () => {
+const getProducts = async (): Promise<Product[]> => {
     try {
-        const products = await db.product.findMany({});
-
-        return products;
+        return await db.product.findMany({});
     }
     catch (err) {
         throw new Error("We got an error. Please try again later!")
     }
 }
 
-const addProduct = async (product: Product) => {
+const addProduct = async (product: Product): Promise<Product> => {
     try {
         if (!product || !product?.name || !product?.price) {
             throw new Error("The product needs to have a name and a price")
@@ -20,7 +18,8 @@ const addProduct = async (product: Product) => {
         const createdProduct = await db.product.create({
             data: {
                 name: product.name,
-                price: product.price
+                price: product.price,
+                categoryId: product.categoryId
             }
         });
 
@@ -36,7 +35,7 @@ const addProduct = async (product: Product) => {
 }
 
 
-export const resolvers = {
+export const productResolver = {
     Query: {
         getProducts: () => getProducts()
     },
