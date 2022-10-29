@@ -1,4 +1,21 @@
-import db, { Category } from "../../lib/database";
+import db, { Category, Product } from "../../lib/database";
+
+const getCategory = async (categoryName: string): Promise<Category & {products: Product[]} | null> => {
+    try {
+        return await db.category.findUnique({
+            where: {
+                name: categoryName
+            },
+            include: {
+                products: true
+            }
+        });
+    }
+    catch (err) {
+        throw new Error("We got an error. Please try again later");
+    }
+    
+}
 
 const getCategories = async (): Promise<Category[]> => {
     try {
@@ -26,6 +43,7 @@ const addCategory = async(category: Category): Promise<Category> => {
 
 export const categoryResolver = {
     Query: {
+        getCategory: (root: any, args: any) => getCategory(args.categoryName),
         getCategories: () => getCategories()
     },
     Mutation: {
