@@ -1,3 +1,16 @@
+query GetCategory($categoryName: String!) {
+    getCategory(categoryName: $categoryName) {
+        id
+        name
+        products {
+            id
+            name
+            price
+            image
+        }
+    }
+}
+
 query GetCategories {
     getCategories {
         name
