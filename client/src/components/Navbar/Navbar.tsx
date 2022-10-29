@@ -6,18 +6,21 @@ import Box from "@components/ui/Box";
 import Icon from "@components/ui/Icon";
 import Hyperlink from "@components/ui/Hyperlink";
 import Typography from "@components/ui/Typography";
+import List, { ListItem } from "@components/ui/List";
 
 import useToggle from "@hooks/useToggle";
 import { useQuery } from "@apollo/client";
 
 import { GetCategoriesDocument } from "@graphql/generated";
 import { HamburgerIcon, SearchIcon, CartIcon } from "@utils/svg-sprite";
-import List, { ListItem } from "@components/List";
 
 const Navbar = (): JSX.Element => {
     const { status: isOpen, toggleStatus: toggleIsOpen } = useToggle(false);
 
-    const { data, loading } = useQuery(GetCategoriesDocument);
+    const { data, loading } = useQuery(GetCategoriesDocument, {
+        fetchPolicy: "network-only",
+        nextFetchPolicy: "cache-first",
+    });
 
     return (
         <>
@@ -50,6 +53,7 @@ const Navbar = (): JSX.Element => {
                 <List className="sidebar-list">
                     {data?.getCategories.map((x) => (
                         <Hyperlink
+                            key={x.name}
                             className="sidebar-link"
                             to={`/category/${x.name.toLowerCase()}`}
                         >
