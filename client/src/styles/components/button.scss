@@ -1,0 +1,49 @@
+@import "../abstract/variables.scss";
+
+button {
+    outline: none;
+}
+
+.btn-small {
+    width: 5rem;
+}
+
+.btn-medium {
+    width: 7rem;
+}
+
+.btn-large {
+    width: 10rem;
+}
+
+.btn-primary {
+    font-size: 0.9rem;
+    background: transparent;
+    color: $primary-color;
+    padding: 0.9rem 2rem;
+    border: 1px solid $primary-color;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    &:hover {
+    }
+
+    &:disabled {
+        cursor: auto;
+    }
+}
+
+.btn-secondary {
+    background: $secondary-color;
+    color: $primary-color;
+    padding: 0.625rem 1.25rem;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+    }
+
+    &:disabled {
+        cursor: auto;
+    }
+}

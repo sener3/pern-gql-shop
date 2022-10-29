@@ -1,0 +1,18 @@
+@import "../abstract/variables.scss";
+
+.link-primary {
+    font-size: 0.9rem;
+    background: transparent;
+    color: $primary-color;
+    padding: 0.9rem 2rem;
+    border: 1px solid $primary-color;
+    border-radius: 1rem;
+    text-decoration: none;
+
+    &:hover {
+    }
+
+    &:disabled {
+        cursor: auto;
+    }
+}
