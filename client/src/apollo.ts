@@ -2,14 +2,16 @@ import {
     ApolloClient,
     InMemoryCache,
     split,
-    HttpLink,
 } from "@apollo/client";
+
+import {createUploadLink} from "apollo-upload-client";
 
 import { getMainDefinition } from "@apollo/client/utilities";
 
 import { WebSocketLink } from "@apollo/client/link/ws";
 
-const httpLink = new HttpLink({
+
+const httpLink = createUploadLink({
     uri: process.env.REACT_APP_BACKEND_GRAPHQL,
 });
 
