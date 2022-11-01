@@ -15,16 +15,9 @@ import { Product, GetCategoriesDocument } from "@graphql/generated";
 import { useQuery, useReactiveVar } from "@apollo/client";
 
 import { HamburgerIcon, SearchIcon, CartIcon } from "@utils/svg-sprite";
-import { GET_CART_ITEMS } from "@graphql/queries/cart";
 
 const Navbar = (): JSX.Element => {
     const { status: isOpen, toggleStatus: toggleIsOpen } = useToggle(false);
-
-    const { data: somedata, error: someerror } = useQuery(GET_CART_ITEMS);
-
-    console.log(somedata);
-
-    console.log(someerror);
 
     const cartItems: Product[] = useReactiveVar(cartItemsVar);
 
