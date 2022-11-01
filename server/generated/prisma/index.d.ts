@@ -20,6 +20,7 @@ export type Product = {
   id: string
   name: string
   price: number
+  image: string
   createdAt: Date
   updatedAt: Date
   categoryId: string | null
@@ -922,6 +923,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     price: number | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
     categoryId: string | null
@@ -931,6 +933,7 @@ export namespace Prisma {
     id: string | null
     name: string | null
     price: number | null
+    image: string | null
     createdAt: Date | null
     updatedAt: Date | null
     categoryId: string | null
@@ -940,6 +943,7 @@ export namespace Prisma {
     id: number
     name: number
     price: number
+    image: number
     createdAt: number
     updatedAt: number
     categoryId: number
@@ -959,6 +963,7 @@ export namespace Prisma {
     id?: true
     name?: true
     price?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
     categoryId?: true
@@ -968,6 +973,7 @@ export namespace Prisma {
     id?: true
     name?: true
     price?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
     categoryId?: true
@@ -977,6 +983,7 @@ export namespace Prisma {
     id?: true
     name?: true
     price?: true
+    image?: true
     createdAt?: true
     updatedAt?: true
     categoryId?: true
@@ -1079,6 +1086,7 @@ export namespace Prisma {
     id: string
     name: string
     price: number
+    image: string
     createdAt: Date
     updatedAt: Date
     categoryId: string | null
@@ -1107,6 +1115,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     price?: boolean
+    image?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     Category?: boolean | CategoryArgs
@@ -2806,6 +2815,7 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     price: 'price',
+    image: 'image',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     categoryId: 'categoryId'
@@ -2852,6 +2862,7 @@ export namespace Prisma {
     id?: StringFilter | string
     name?: StringFilter | string
     price?: FloatFilter | number
+    image?: StringFilter | string
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
     Category?: XOR<CategoryRelationFilter, CategoryWhereInput> | null
@@ -2862,6 +2873,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     price?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     Category?: CategoryOrderByWithRelationInput
@@ -2876,6 +2888,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     price?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     categoryId?: SortOrder
@@ -2893,6 +2906,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter | string
     name?: StringWithAggregatesFilter | string
     price?: FloatWithAggregatesFilter | number
+    image?: StringWithAggregatesFilter | string
     createdAt?: DateTimeWithAggregatesFilter | Date | string
     updatedAt?: DateTimeWithAggregatesFilter | Date | string
     categoryId?: StringNullableWithAggregatesFilter | string | null
@@ -2919,6 +2933,7 @@ export namespace Prisma {
 
   export type CategoryWhereUniqueInput = {
     id?: string
+    name?: string
   }
 
   export type CategoryOrderByWithAggregationInput = {
@@ -2945,6 +2960,7 @@ export namespace Prisma {
     id?: string
     name: string
     price: number
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     Category?: CategoryCreateNestedOneWithoutProductsInput
@@ -2954,6 +2970,7 @@ export namespace Prisma {
     id?: string
     name: string
     price: number
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     categoryId?: string | null
@@ -2963,6 +2980,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     Category?: CategoryUpdateOneWithoutProductsNestedInput
@@ -2972,6 +2990,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -2981,6 +3000,7 @@ export namespace Prisma {
     id?: string
     name: string
     price: number
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
     categoryId?: string | null
@@ -2990,6 +3010,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2998,6 +3019,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     categoryId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3117,6 +3139,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     price?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     categoryId?: SortOrder
@@ -3130,6 +3153,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     price?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     categoryId?: SortOrder
@@ -3139,6 +3163,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     price?: SortOrder
+    image?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     categoryId?: SortOrder
@@ -3501,6 +3526,7 @@ export namespace Prisma {
     id?: string
     name: string
     price: number
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3509,6 +3535,7 @@ export namespace Prisma {
     id?: string
     name: string
     price: number
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3546,6 +3573,7 @@ export namespace Prisma {
     id?: StringFilter | string
     name?: StringFilter | string
     price?: FloatFilter | number
+    image?: StringFilter | string
     createdAt?: DateTimeFilter | Date | string
     updatedAt?: DateTimeFilter | Date | string
     categoryId?: StringNullableFilter | string | null
@@ -3555,6 +3583,7 @@ export namespace Prisma {
     id?: string
     name: string
     price: number
+    image: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3563,6 +3592,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3571,6 +3601,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3579,6 +3610,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     price?: FloatFieldUpdateOperationsInput | number
+    image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
