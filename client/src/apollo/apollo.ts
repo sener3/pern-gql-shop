@@ -1,6 +1,5 @@
 import {
     ApolloClient,
-    InMemoryCache,
     split,
 } from "@apollo/client";
 
@@ -9,7 +8,10 @@ import {createUploadLink} from "apollo-upload-client";
 import { getMainDefinition } from "@apollo/client/utilities";
 
 import { WebSocketLink } from "@apollo/client/link/ws";
+import { persistCache, LocalStorageWrapper } from 'apollo3-cache-persist';
 
+import { cache } from "./cache";
+import { typeDefs } from "@graphql/typeDefs";
 
 const httpLink = createUploadLink({
     uri: process.env.REACT_APP_BACKEND_GRAPHQL,
@@ -34,9 +36,18 @@ const splitLink = split(
     httpLink
 );
 
+const persistedCache = cache;
+
+// @ts-expect-error
+await persistCache({
+    cache: persistedCache,
+    storage: new LocalStorageWrapper(window.localStorage),
+});
+
 const client = new ApolloClient({
     link: splitLink,
-    cache: new InMemoryCache(),
+    typeDefs: typeDefs,
+    cache: cache,
 });
 
 export {client};

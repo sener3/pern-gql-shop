@@ -9,13 +9,24 @@ import Typography from "@components/ui/Typography";
 import List, { ListItem } from "@components/ui/List";
 
 import useToggle from "@hooks/useToggle";
-import { useQuery } from "@apollo/client";
 
-import { GetCategoriesDocument } from "@graphql/generated";
+import { cartItemsVar } from "@myapollo/reactiveVars";
+import { Product, GetCategoriesDocument } from "@graphql/generated";
+import { useQuery, useReactiveVar } from "@apollo/client";
+
 import { HamburgerIcon, SearchIcon, CartIcon } from "@utils/svg-sprite";
+import { GET_CART_ITEMS } from "@graphql/queries/cart";
 
 const Navbar = (): JSX.Element => {
     const { status: isOpen, toggleStatus: toggleIsOpen } = useToggle(false);
+
+    const { data: somedata, error: someerror } = useQuery(GET_CART_ITEMS);
+
+    console.log(somedata);
+
+    console.log(someerror);
+
+    const cartItems: Product[] = useReactiveVar(cartItemsVar);
 
     const { data, loading } = useQuery(GetCategoriesDocument, {
         fetchPolicy: "network-only",
@@ -40,6 +51,8 @@ const Navbar = (): JSX.Element => {
                         </Hyperlink>
 
                         <Icon icon={CartIcon} />
+
+                        <Box>{cartItems.length}</Box>
                     </Box>
                 </Box>
             </Box>

@@ -1,6 +1,6 @@
 import "./styles/app.scss";
 
-import { client } from "./apollo";
+import { client } from "@myapollo/apollo";
 import { ApolloProvider } from "@apollo/client";
 
 import MyRoutes from "./router/Routes";

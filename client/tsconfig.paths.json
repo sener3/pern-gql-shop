@@ -6,6 +6,7 @@
             "@utils/*": ["./utils/*"],
             "@hooks/*": ["./hooks/*"],
             "@styles/*": ["./styles/*"],
+            "@myapollo/*": ["./apollo/*"],
             "@router/*": ["./router/*"],
             "@graphql/*": ["./graphql/*"],
             "@components/*": ["./components/*"]
